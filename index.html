@@ -1,50 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="qr.png">
-    <title>QR Generator - Genera il tuo QR</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generatore QR Code</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
 </head>
-
 <body>
+<div class="container">
+    <h1><i class="fas fa-qrcode"></i> Generatore QR Code</h1>
+    
+    <input type="url" id="link" placeholder="Inserisci il link">
+    
+    <div class="row">
+        <label>Colore QR:</label>
+        <input type="color" id="color" value="#ffffff">
+    </div>
+    
+    <div class="row">
+        <label>Colore sfondo:</label>
+        <input type="color" id="bgColor" value="#121212">
+    </div>
+    
+    <div class="row">
+        <label>Dimensione:</label>
+        <input type="range" id="size" min="100" max="500" value="200">
+        <span id="sizeVal">200px</span>
+    </div>
+    
+    <div class="row">
+        <label>Forma blocchi:</label>
+        <select id="shape">
+            <option value="square">Quadrati</option>
+            <option value="dots">Cerchi</option>
+        </select>
+    </div>
 
-    <section>
-        <div class="row">
-            <input type="color" class="light" value="#ffffff">
-            <input type="color" class="dark">
-            <select class="sizes">
-                <option value="100">100×100</option>
-                <option value="200">200×200</option>
-                <option value="300">300×300</option>
-                <option selected value="400">400×400</option>
-                <option value="500">500×500</option>
-                <option value="600">600×600</option>
-                <option value="700">700×700</option>
-                <option value="800">800×800</option>
-                <option value="900">900×900</option>
-                <option value="1000">1000×1000</option>
-            </select>
-        </div>
-        <input type="text" class="qr-text" placeholder="Inserisci il tuo testo o link..">
-        <div id="qr-code"></div>
-        <div class="action-container">
-            <a href="#" class="download btn" download="QRCode">
-                <span>Download</span>
-                <img src="download.svg" alt="">
-            </a>
-            <button class="btn share-btn">
-                <span>Condividi</span>
-                <img src="share.svg" alt="">
-            </button>
-        </div>
-    </section>
+    <button id="generate"><i class="fas fa-magic"></i> Genera QR Code</button>
+    <div id="qr-container"></div>
+    <button id="download-btn" class="download-btn"><i class="fas fa-download"></i> Scarica</button>
+</div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <script src="index.js"></script>
+<script src="script.js"></script>
 </body>
-
 </html>
